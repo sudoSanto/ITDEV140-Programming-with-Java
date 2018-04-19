@@ -4,6 +4,9 @@ ITDEV140 Programming with Java
 
 Using the latest Java SE Development Kit, Students will learn and apply Java programming language to create both console and graphical user interface applications.  Topics explored include data types, decisions, loops, methods, data structures, I/O, exceptions, object-oriented skills, user interfaces, and the use of relational databases.
 
+Assignments
+------
+
 [<img src="https://github.com/favicon.ico" alt="Assignment 1" width="18" height="18">](https://github.com/sudoSanto/ITDEV150-Database-Management-with-SQL/blob/master/Assignment1.txt "Assignment 1")&nbsp;
 **Placeholder**\
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*Placeholder*
