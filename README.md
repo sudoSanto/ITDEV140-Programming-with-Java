@@ -7,9 +7,48 @@ Using the latest Java SE Development Kit, Students will learn and apply Java pro
 Assignments
 ------
 
-[<img src="https://github.com/favicon.ico" alt="Assignment 1" width="18" height="18">](https://github.com/sudoSanto/ITDEV150-Database-Management-with-SQL/blob/master/Assignment1.txt "Assignment 1")&nbsp;
-**Placeholder**\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*Placeholder*
+[<img src="https://github.com/favicon.ico" alt="Assignment 1" width="18" height="18">](https://github.com/sudoSanto/ITDEV140-Programming-with-Java/tree/master/MyInfo/src/myinfo "Assignment 1")&nbsp;
+**My Info**\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*Display Information to Console*
+
+[<img src="https://github.com/favicon.ico" alt="Assignment 2" width="18" height="18">](https://github.com/sudoSanto/ITDEV140-Programming-with-Java/tree/master/dalsanto_Assignment2/src/dalsanto_assignment2 "Assignment 2")&nbsp;
+**Assignment 2**\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*Console Tip Calculator*
+
+[<img src="https://github.com/favicon.ico" alt="Assignment 3" width="18" height="18">](https://github.com/sudoSanto/ITDEV140-Programming-with-Java/tree/master/dalsanto_OfAKind/src/dalsanto_ofakind "Assignment 3")&nbsp;
+**Of a Kind**\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*Arrays*
+
+[<img src="https://github.com/favicon.ico" alt="Assignment 4" width="18" height="18">](https://github.com/sudoSanto/ITDEV140-Programming-with-Java/tree/master/dalsanto_Assignment4/src/dalsanto_assignment4 "Assignment 4")&nbsp;
+**Assignment 4**\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*Passing Values*
+
+[<img src="https://github.com/favicon.ico" alt="Assignment 5" width="18" height="18">](https://github.com/sudoSanto/ITDEV140-Programming-with-Java/tree/master/dalsanto_GuessTheWord/src/dalsanto_guesstheword "Assignment 5")&nbsp;
+**Guess the Word**\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*Arrays (Cont'd) & Sound*
+
+[<img src="https://github.com/favicon.ico" alt="Assignment 6" width="18" height="18">](https://github.com/sudoSanto/ITDEV140-Programming-with-Java/tree/master/dalsanto_MonsterMash/src/dalsanto_monstermash "Assignment 6")&nbsp;
+**Monster Mash**\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*Inheritance & Polymorphism*
+
+[<img src="https://github.com/favicon.ico" alt="Midterm" width="18" height="18">](https://github.com/sudoSanto/ITDEV140-Programming-with-Java/tree/master/dalsanto_Midterm/src/dalsanto_midterm "Midterm")&nbsp;
+**Midterm**\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*Midterm*
+
+[<img src="https://github.com/favicon.ico" alt="Assignment 7" width="18" height="18">](https://github.com/sudoSanto/ITDEV140-Programming-with-Java/tree/master/dalsanto_SchoolDudes/src/dalsanto_schooldudes "Assignment 7")&nbsp;
+**School Dudes**\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*Inheritance & Polymorphism (Cont'd)*
+
+[<img src="https://github.com/favicon.ico" alt="Assignment 8" width="18" height="18">](https://github.com/sudoSanto/ITDEV140-Programming-with-Java/tree/master/dalsanto_GroceryList/src/dalsanto_grocerylist "Assignment 8")&nbsp;
+**Grocery List**\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*Saving Data to a File*
+
+[<img src="https://github.com/favicon.ico" alt="Assignment 9" width="18" height="18">](https://github.com/sudoSanto/ITDEV140-Programming-with-Java/tree/master/dalsanto_GUITipper/build/classes/dalsanto_guitipper "Assignment 9")&nbsp;
+**GUI Tipper**\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*jFrames in Swing without MVC - NEEDS UPDATE*
+
+**GUI Cars**\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*jFrames in Swing & MVC*
 
 <br/>
 
