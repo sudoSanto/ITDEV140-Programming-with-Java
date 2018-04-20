@@ -43,12 +43,12 @@ Assignments
 **Grocery List**\
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*Saving Data to a File*
 
-[<img src="https://github.com/favicon.ico" alt="Assignment 9" width="18" height="18">](https://github.com/sudoSanto/ITDEV140-Programming-with-Java/tree/master/dalsanto_GUITipper/build/classes/dalsanto_guitipper "Assignment 9")&nbsp;
+[<img src="https://github.com/favicon.ico" alt="Assignment 9" width="18" height="18">](https://github.com/sudoSanto/ITDEV140-Programming-with-Java/tree/master/dalsanto_GUITipper/src/dalsanto_guitipper "Assignment 9")&nbsp;
 **GUI Tipper**\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*jFrames in Swing without MVC - NEEDS UPDATE*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*jFrames in Swing without MVC*
 
 **GUI Cars**\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*jFrames in Swing & MVC*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*jFrames in Swing & MVC - Due 04/24/2018*
 
 <br/>
 
