@@ -48,7 +48,7 @@ Assignments
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*jFrames in Swing without MVC*
 
 **GUI Cars**\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*jFrames in Swing & MVC - Due 04/24/2018*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*jFrames in Swing & MVC*
 
 <br/>
 
