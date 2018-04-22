@@ -2,6 +2,10 @@ package dalsanto_guicustomcars;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+//Matthew Dal Santo
+//ITDEV140
+//Assignment 10
+
 public class Model_GUICustomCars {
 
     private Car_GUICustomCars car = new Car_GUICustomCars();
