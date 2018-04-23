@@ -20,9 +20,9 @@ public class User_GUICustomCars {
     public int getAddressStreetNumber() { return addressStreetNumber; }
     public void setAddressStreetNumber(int i) { addressStreetNumber = i; }
     
-    private int addressDirection = 0;
-    public int getAddressDirection() { return addressDirection; }
-    public void setAddressDirection(int i) { addressDirection = i; }
+    private int addressStreetDirection = 0;
+    public int getAddressStreetDirection() { return addressStreetDirection; }
+    public void setAddressStreetDirection(int i) { addressStreetDirection = i; }
 
     private String addressStreetName = "";
     public String getAddressStreetName() { return addressStreetName; }

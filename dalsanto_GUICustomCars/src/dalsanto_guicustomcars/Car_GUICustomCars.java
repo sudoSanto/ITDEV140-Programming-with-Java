@@ -17,7 +17,11 @@ public class Car_GUICustomCars {
     public ArrayList<Integer> getPackages() { return packageIndexList; }
     public void addPackage(int i) { packageIndexList.add(i); }
     public void removePackage(int i) { packageIndexList.remove(i); }
-    public void removePackageIndex(int i) { packageIndexList.removeAll(Arrays.asList(i)); }
+    public void removePackageType(int i) { packageIndexList.removeAll(Arrays.asList(i)); }
     public void clearPackages() { packageIndexList.clear(); }
+    
+    private Boolean delivery = false;
+    public Boolean getDelivery() { return delivery; }
+    public void setDelivery(Boolean b) { delivery = b;  }
 }
 

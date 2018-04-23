@@ -1,6 +1,11 @@
 package dalsanto_guicustomcars;
 
 //Matthew Dal Santo
+
+import java.awt.event.ActionListener;
+import javax.swing.*;
+//import javax.swing.JOptionPane;
+
 //ITDEV140
 //Assignment 10
 
@@ -12,7 +17,10 @@ public class View_GUICustomCars extends javax.swing.JFrame {
     public View_GUICustomCars() {
         initComponents();
         
-        
+        // Set Delivery Options
+        cBoxDelivery.removeAllItems();
+        cBoxDelivery.addItem("No");
+        cBoxDelivery.addItem("Yes");
     }
 
     /**
@@ -33,7 +41,7 @@ public class View_GUICustomCars extends javax.swing.JFrame {
         txtFieldAddressNumber = new javax.swing.JTextField();
         cBoxAddressStreetDirection = new javax.swing.JComboBox<>();
         txtFieldAddressStreetName = new javax.swing.JTextField();
-        cBoxAddressStreetPrefix = new javax.swing.JComboBox<>();
+        cBoxAddressStreetSuffix = new javax.swing.JComboBox<>();
         txtFieldAddressAux = new javax.swing.JTextField();
         txtFieldAddressCity = new javax.swing.JTextField();
         lUserAddressState = new javax.swing.JLabel();
@@ -46,10 +54,10 @@ public class View_GUICustomCars extends javax.swing.JFrame {
         rButtonCarTypeMidSized = new javax.swing.JRadioButton();
         rButtonCarTypeSUV = new javax.swing.JRadioButton();
         lAddPackage = new javax.swing.JLabel();
-        cBoxCarPackages = new javax.swing.JComboBox<>();
+        cBoxCarPackage = new javax.swing.JComboBox<>();
         bAddCarPackage = new javax.swing.JButton();
         lCarPackages = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        sPaneCarPackages = new javax.swing.JScrollPane();
         txtAreaCarPackages = new javax.swing.JTextArea();
         bRemoveCarPackage = new javax.swing.JButton();
         lDelivery = new javax.swing.JLabel();
@@ -83,7 +91,7 @@ public class View_GUICustomCars extends javax.swing.JFrame {
 
         txtFieldAddressStreetName.setText("Street Name");
 
-        cBoxAddressStreetPrefix.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cBoxAddressStreetSuffix.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         txtFieldAddressAux.setText("Aux");
 
@@ -112,7 +120,7 @@ public class View_GUICustomCars extends javax.swing.JFrame {
 
         lAddPackage.setText("Add Package");
 
-        cBoxCarPackages.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cBoxCarPackage.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         bAddCarPackage.setText("Add");
 
@@ -120,7 +128,7 @@ public class View_GUICustomCars extends javax.swing.JFrame {
 
         txtAreaCarPackages.setColumns(20);
         txtAreaCarPackages.setRows(5);
-        jScrollPane1.setViewportView(txtAreaCarPackages);
+        sPaneCarPackages.setViewportView(txtAreaCarPackages);
 
         bRemoveCarPackage.setText("Remove");
 
@@ -155,7 +163,6 @@ public class View_GUICustomCars extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(rButtonCarTypeMidSized)
                             .addComponent(rButtonCarTypeSUV)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -163,7 +170,7 @@ public class View_GUICustomCars extends javax.swing.JFrame {
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(layout.createSequentialGroup()
-                                                .addComponent(cBoxCarPackages, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(cBoxCarPackage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addComponent(bAddCarPackage))
                                             .addComponent(lAddPackage)
@@ -171,10 +178,11 @@ public class View_GUICustomCars extends javax.swing.JFrame {
                                         .addGap(35, 35, 35)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(bRemoveCarPackage)
-                                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(sPaneCarPackages, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(lCarPackages)))
                                     .addComponent(lCarType)
-                                    .addComponent(lCar))
+                                    .addComponent(lCar)
+                                    .addComponent(rButtonCarTypeMidSized))
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(32, 32, 32)
@@ -196,7 +204,7 @@ public class View_GUICustomCars extends javax.swing.JFrame {
                                                         .addGap(18, 18, 18)
                                                         .addComponent(txtFieldAddressStreetName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                        .addComponent(cBoxAddressStreetPrefix, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                                        .addComponent(cBoxAddressStreetSuffix, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(36, 36, 36)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -261,7 +269,7 @@ public class View_GUICustomCars extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(cBoxAddressStreetDirection, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtFieldAddressStreetName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(cBoxAddressStreetPrefix, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(cBoxAddressStreetSuffix, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txtFieldAddressAux, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -290,9 +298,9 @@ public class View_GUICustomCars extends javax.swing.JFrame {
                         .addComponent(lCarType)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(rButtonCarTypeCompact)
-                        .addGap(18, 18, 18)
-                        .addComponent(rButtonCarTypeMidSized)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(rButtonCarTypeMidSized)
+                        .addGap(18, 18, 18)
                         .addComponent(rButtonCarTypeSUV)
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -303,10 +311,10 @@ public class View_GUICustomCars extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(7, 7, 7)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(cBoxCarPackages, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(cBoxCarPackage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(bAddCarPackage)))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(sPaneCarPackages, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(bRemoveCarPackage)
@@ -365,10 +373,9 @@ public class View_GUICustomCars extends javax.swing.JFrame {
     private javax.swing.JButton bSubmit;
     private javax.swing.JComboBox<String> cBoxAddressState;
     private javax.swing.JComboBox<String> cBoxAddressStreetDirection;
-    private javax.swing.JComboBox<String> cBoxAddressStreetPrefix;
-    private javax.swing.JComboBox<String> cBoxCarPackages;
+    private javax.swing.JComboBox<String> cBoxAddressStreetSuffix;
+    private javax.swing.JComboBox<String> cBoxCarPackage;
     private javax.swing.JComboBox<String> cBoxDelivery;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lAddPackage;
     private javax.swing.JLabel lCar;
     private javax.swing.JLabel lCarPackages;
@@ -387,6 +394,7 @@ public class View_GUICustomCars extends javax.swing.JFrame {
     private javax.swing.JRadioButton rButtonCarTypeCompact;
     private javax.swing.JRadioButton rButtonCarTypeMidSized;
     private javax.swing.JRadioButton rButtonCarTypeSUV;
+    private javax.swing.JScrollPane sPaneCarPackages;
     private javax.swing.JTextArea txtAreaCarPackages;
     private javax.swing.JTextField txtFieldAddressAux;
     private javax.swing.JTextField txtFieldAddressCity;
@@ -397,4 +405,43 @@ public class View_GUICustomCars extends javax.swing.JFrame {
     private javax.swing.JTextField txtFieldLastName;
     private javax.swing.JTextField txtFieldPhoneNumber;
     // End of variables declaration//GEN-END:variables
+
+    // Getters
+    public int getAddressState() { return cBoxAddressState.getSelectedIndex(); }
+    public int getAddressStreetDirection() { return cBoxAddressStreetDirection.getSelectedIndex(); }
+    public int getAddressStreetPrefix() { return cBoxAddressStreetSuffix.getSelectedIndex(); }
+    public int getCarPackage() { return cBoxCarPackage.getSelectedIndex(); }
+    public int getDelivery() { return cBoxDelivery.getSelectedIndex(); }
+
+    // Setters
+    public void setCBoxAddressState(String[] s) {
+        cBoxAddressState.setModel(new DefaultComboBoxModel(s));
+    }
+    public void setCBoxAddressStreetDirection(String[] s) {
+        cBoxAddressStreetDirection.setModel(new DefaultComboBoxModel(s));
+    }
+    public void setCBoxAddressStreetSuffix(String[] s) {
+        cBoxAddressStreetSuffix.setModel(new DefaultComboBoxModel(s));
+    }
+    public void setCBoxCarPackage(String[] s) {
+        cBoxCarPackage.setModel(new DefaultComboBoxModel(s));
+    }
+    public void setPackages(String[] s) {
+        txtAreaCarPackages.setText("");
+        for(int i = 0; i < s.length; i++) {
+            txtAreaCarPackages.append(s[i]);
+        }
+    }
+    
+    // Listeners
+    
+    // Button - Add Car Package
+    void addBAddCarPackageListener(ActionListener listenForBAddCarPackage) {
+        bAddCarPackage.addActionListener(listenForBAddCarPackage);
+    }
+    
+    // Error Messages
+    void displayErrorMessage(String errorMessage) {
+        JOptionPane.showMessageDialog(this, errorMessage);
+    }
 }
