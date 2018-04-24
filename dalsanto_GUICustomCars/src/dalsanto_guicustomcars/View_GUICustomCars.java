@@ -1,11 +1,9 @@
 package dalsanto_guicustomcars;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import javax.swing.*;
 
 //Matthew Dal Santo
-
-import java.awt.event.ActionListener;
-import javax.swing.*;
-//import javax.swing.JOptionPane;
-
 //ITDEV140
 //Assignment 10
 
@@ -57,8 +55,6 @@ public class View_GUICustomCars extends javax.swing.JFrame {
         cBoxCarPackage = new javax.swing.JComboBox<>();
         bAddCarPackage = new javax.swing.JButton();
         lCarPackages = new javax.swing.JLabel();
-        sPaneCarPackages = new javax.swing.JScrollPane();
-        txtAreaCarPackages = new javax.swing.JTextArea();
         bRemoveCarPackage = new javax.swing.JButton();
         lDelivery = new javax.swing.JLabel();
         cBoxDelivery = new javax.swing.JComboBox<>();
@@ -68,13 +64,16 @@ public class View_GUICustomCars extends javax.swing.JFrame {
         lPackagePriceNumber = new javax.swing.JLabel();
         lDeliveryPrice = new javax.swing.JLabel();
         lDeliveryPriceNumber = new javax.swing.JLabel();
-        bReset = new javax.swing.JButton();
-        bRandom = new javax.swing.JButton();
         bSubmit = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        listCarPackages = new javax.swing.JList<>();
+        labelCarImage = new javax.swing.JLabel();
+        lUserPhoneNumber = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Custom Cars GUI(Assignment 10)");
 
+        lUser.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lUser.setText("User");
 
         lUserName.setText("Name");
@@ -105,6 +104,7 @@ public class View_GUICustomCars extends javax.swing.JFrame {
 
         txtFieldPhoneNumber.setText("Phone Number");
 
+        lCar.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lCar.setText("Car");
 
         lCarType.setText("Type");
@@ -126,10 +126,6 @@ public class View_GUICustomCars extends javax.swing.JFrame {
 
         lCarPackages.setText("Car Packages");
 
-        txtAreaCarPackages.setColumns(20);
-        txtAreaCarPackages.setRows(5);
-        sPaneCarPackages.setViewportView(txtAreaCarPackages);
-
         bRemoveCarPackage.setText("Remove");
 
         lDelivery.setText("Delivery");
@@ -138,21 +134,21 @@ public class View_GUICustomCars extends javax.swing.JFrame {
 
         lCarPrice.setText("Car Price: ");
 
-        lCarPriceNumber.setText("_____");
-
         lPackagePrice.setText("Price of Packages: ");
-
-        lPackagePriceNumber.setText("_____");
 
         lDeliveryPrice.setText("Price of Delivery: ");
 
-        lDeliveryPriceNumber.setText("_____");
-
-        bReset.setText("Reset Order");
-
-        bRandom.setText("Random Entry");
-
+        bSubmit.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         bSubmit.setText("Submit Order");
+
+        listCarPackages.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane1.setViewportView(listCarPackages);
+
+        lUserPhoneNumber.setText("Phone Number");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -163,170 +159,159 @@ public class View_GUICustomCars extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(rButtonCarTypeSUV)
+                            .addComponent(lAddPackage)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(cBoxCarPackage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(bAddCarPackage))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(lCar)
+                                .addComponent(lCarType)
+                                .addComponent(rButtonCarTypeMidSized)
+                                .addComponent(rButtonCarTypeCompact)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                    .addComponent(rButtonCarTypeSUV)
+                                    .addGap(36, 36, 36))))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lDelivery)
+                            .addComponent(cBoxDelivery, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(rButtonCarTypeCompact)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(cBoxCarPackage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(bAddCarPackage))
-                                            .addComponent(lAddPackage)
-                                            .addComponent(lDelivery))
-                                        .addGap(35, 35, 35)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(bRemoveCarPackage)
-                                            .addComponent(sPaneCarPackages, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(lCarPackages)))
-                                    .addComponent(lCarType)
-                                    .addComponent(lCar)
-                                    .addComponent(rButtonCarTypeMidSized))
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lCarPackages)
+                                    .addComponent(bRemoveCarPackage))
+                                .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lUserAddress)
+                                    .addComponent(lUserName)
+                                    .addComponent(lUser)
+                                    .addComponent(txtFieldAddressAux, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGap(32, 32, 32)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(lUser)
-                                            .addComponent(lUserName)
-                                            .addComponent(txtFieldAddressAux, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txtFieldAddressCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(txtFieldFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(lUserAddress)
-                                                    .addComponent(txtFieldAddressNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(txtFieldLastName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addGroup(layout.createSequentialGroup()
-                                                        .addComponent(cBoxAddressStreetDirection, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addGap(18, 18, 18)
-                                                        .addComponent(txtFieldAddressStreetName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                        .addComponent(cBoxAddressStreetSuffix, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                        .addComponent(txtFieldAddressCity, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(cBoxAddressState, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(lUserAddressState))
+                                    .addComponent(txtFieldAddressZipCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lUserPhoneNumber)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGap(36, 36, 36)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(txtFieldPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(0, 0, Short.MAX_VALUE))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(txtFieldAddressZipCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addGroup(layout.createSequentialGroup()
-                                                        .addComponent(cBoxAddressState, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addGap(18, 18, 18)
-                                                        .addComponent(lUserAddressState)))
-                                                .addGap(62, 62, 62)
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addGroup(layout.createSequentialGroup()
-                                                        .addComponent(lCarPrice)
-                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                        .addComponent(lCarPriceNumber)
-                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                                    .addGroup(layout.createSequentialGroup()
-                                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                            .addGroup(layout.createSequentialGroup()
-                                                                .addComponent(lDeliveryPrice)
-                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                .addComponent(lDeliveryPriceNumber))
-                                                            .addGroup(layout.createSequentialGroup()
-                                                                .addComponent(lPackagePrice)
-                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                .addComponent(lPackagePriceNumber)))
-                                                        .addGap(0, 204, Short.MAX_VALUE))))))))
-                            .addComponent(cBoxDelivery, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(163, 163, 163))
+                                        .addComponent(txtFieldFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(txtFieldLastName, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                            .addComponent(txtFieldPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(bSubmit))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                            .addComponent(txtFieldAddressNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(cBoxAddressStreetDirection, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(txtFieldAddressStreetName, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(cBoxAddressStreetSuffix, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(bReset)
+                        .addComponent(labelCarImage, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(bRandom)
-                        .addGap(18, 18, 18)
-                        .addComponent(bSubmit)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lCarPrice)
+                                .addGap(18, 18, 18)
+                                .addComponent(lCarPriceNumber))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lPackagePrice)
+                                .addGap(18, 18, 18)
+                                .addComponent(lPackagePriceNumber))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lDeliveryPrice)
+                                .addGap(18, 18, 18)
+                                .addComponent(lDeliveryPriceNumber)))))
+                .addContainerGap(150, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(123, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(lUser)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lUserName)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(txtFieldFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(lUserAddress)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtFieldAddressNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(txtFieldLastName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(45, 45, 45)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(cBoxAddressStreetDirection, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtFieldAddressStreetName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(cBoxAddressStreetSuffix, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtFieldAddressAux, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(labelCarImage, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtFieldAddressCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lCarPrice)
                             .addComponent(lCarPriceNumber))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lPackagePrice)
                             .addComponent(lPackagePriceNumber))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lDeliveryPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lDeliveryPriceNumber))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(lUser)
+                        .addGap(18, 18, 18)
+                        .addComponent(lUserName)
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtFieldFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtFieldLastName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(lUserAddress)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(cBoxAddressStreetDirection, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtFieldAddressNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtFieldAddressStreetName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cBoxAddressStreetSuffix, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtFieldAddressAux, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtFieldAddressCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(cBoxAddressState, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lUserAddressState)
-                            .addComponent(lDeliveryPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lDeliveryPriceNumber))
-                        .addGap(13, 13, 13)
+                            .addComponent(lUserAddressState))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtFieldAddressZipCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lUserPhoneNumber)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtFieldPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(129, 129, 129))
+                        .addGap(87, 87, 87))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(lCar)
-                        .addGap(26, 26, 26)
-                        .addComponent(lCarType)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(rButtonCarTypeCompact)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lCarType)
+                            .addComponent(lDelivery))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(rButtonCarTypeCompact)
+                            .addComponent(cBoxDelivery, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(rButtonCarTypeMidSized)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(rButtonCarTypeSUV)
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lCarPackages)
-                            .addComponent(lAddPackage))
-                        .addGap(18, 18, 18)
+                            .addComponent(lAddPackage)
+                            .addComponent(lCarPackages))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(7, 7, 7)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(cBoxCarPackage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(bAddCarPackage)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(sPaneCarPackages, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(bRemoveCarPackage)
-                                    .addComponent(lDelivery))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cBoxDelivery, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(42, 42, 42)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(bReset)
-                            .addComponent(bRandom)
-                            .addComponent(bSubmit))
-                        .addContainerGap())))
+                                    .addComponent(bSubmit)))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(cBoxCarPackage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(bAddCarPackage)))
+                        .addGap(66, 66, 66))))
         );
 
         pack();
@@ -367,15 +352,14 @@ public class View_GUICustomCars extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bAddCarPackage;
     private javax.swing.ButtonGroup bGroupCarType;
-    private javax.swing.JButton bRandom;
     private javax.swing.JButton bRemoveCarPackage;
-    private javax.swing.JButton bReset;
     private javax.swing.JButton bSubmit;
     private javax.swing.JComboBox<String> cBoxAddressState;
     private javax.swing.JComboBox<String> cBoxAddressStreetDirection;
     private javax.swing.JComboBox<String> cBoxAddressStreetSuffix;
     private javax.swing.JComboBox<String> cBoxCarPackage;
     private javax.swing.JComboBox<String> cBoxDelivery;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lAddPackage;
     private javax.swing.JLabel lCar;
     private javax.swing.JLabel lCarPackages;
@@ -391,11 +375,12 @@ public class View_GUICustomCars extends javax.swing.JFrame {
     private javax.swing.JLabel lUserAddress;
     private javax.swing.JLabel lUserAddressState;
     private javax.swing.JLabel lUserName;
+    private javax.swing.JLabel lUserPhoneNumber;
+    private javax.swing.JLabel labelCarImage;
+    private javax.swing.JList<String> listCarPackages;
     private javax.swing.JRadioButton rButtonCarTypeCompact;
     private javax.swing.JRadioButton rButtonCarTypeMidSized;
     private javax.swing.JRadioButton rButtonCarTypeSUV;
-    private javax.swing.JScrollPane sPaneCarPackages;
-    private javax.swing.JTextArea txtAreaCarPackages;
     private javax.swing.JTextField txtFieldAddressAux;
     private javax.swing.JTextField txtFieldAddressCity;
     private javax.swing.JTextField txtFieldAddressNumber;
@@ -407,11 +392,30 @@ public class View_GUICustomCars extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     // Getters
+    public String getFirstName() { return txtFieldFirstName.getText(); }
+    public String getLastName() { return txtFieldLastName.getText(); }
     public int getAddressState() { return cBoxAddressState.getSelectedIndex(); }
     public int getAddressStreetDirection() { return cBoxAddressStreetDirection.getSelectedIndex(); }
     public int getAddressStreetPrefix() { return cBoxAddressStreetSuffix.getSelectedIndex(); }
     public int getCarPackage() { return cBoxCarPackage.getSelectedIndex(); }
+    public ArrayList<String> getSelectedCarPackages() { 
+        ArrayList<String> empty = new ArrayList<String>();
+        if (listCarPackages.getSelectedValuesList().size() > 0)
+            return (ArrayList)listCarPackages.getSelectedValuesList();
+        else
+            return empty;
+    }
     public int getDelivery() { return cBoxDelivery.getSelectedIndex(); }
+    public int getSelectedCarType() {
+        int i = 0;
+        if (rButtonCarTypeCompact.isSelected())
+            i = 1;
+        if (rButtonCarTypeMidSized.isSelected())
+            i = 2;
+        if (rButtonCarTypeSUV.isSelected())
+            i = 3;
+        return i;
+    }
 
     // Setters
     public void setCBoxAddressState(String[] s) {
@@ -427,21 +431,77 @@ public class View_GUICustomCars extends javax.swing.JFrame {
         cBoxCarPackage.setModel(new DefaultComboBoxModel(s));
     }
     public void setPackages(String[] s) {
-        txtAreaCarPackages.setText("");
-        for(int i = 0; i < s.length; i++) {
-            txtAreaCarPackages.append(s[i]);
-        }
+        listCarPackages.setListData(s);
     }
+    public void setCarPrice(String s) {
+        lCarPriceNumber.setText(s);
+    }
+    public void setPackagePrice(String s) {
+        lPackagePriceNumber.setText(s);
+    }
+    public void setDeliveryPrice(String s) {
+        lDeliveryPriceNumber.setText(s);
+    }
+    
+    // Saving old method for reference.
+    //public void setCarImageCompact() {
+        //try {
+        //BufferedImage myPicture = ImageIO.read(new File("images/Compact.png"));
+        //labelTestImage.setIcon(new ImageIcon(myPicture));
+        //}
+        //catch (IOException ex) { }
+    //}
+    public void setCarImageCompact() {
+        java.net.URL carIcon = View_GUICustomCars.class.getResource("/images/Compact.png");
+        if (carIcon != null)
+        labelCarImage.setIcon(new ImageIcon(carIcon));
+    }
+    public void setCarImageMidSized() {
+        java.net.URL carIcon = View_GUICustomCars.class.getResource("/images/MidSized.png");
+        if (carIcon != null)
+        labelCarImage.setIcon(new ImageIcon(carIcon));
+    }
+    public void setCarImageSUV() {
+        java.net.URL carIcon = View_GUICustomCars.class.getResource("/images/SUV.png");
+        if (carIcon != null)
+        labelCarImage.setIcon(new ImageIcon(carIcon));
+    }
+
     
     // Listeners
     
-    // Button - Add Car Package
+    // Add Car Package Button
     void addBAddCarPackageListener(ActionListener listenForBAddCarPackage) {
         bAddCarPackage.addActionListener(listenForBAddCarPackage);
     }
+    // Remove Car Package Button
+    void addBRemoveCarPackageListener(ActionListener listenForBRemoveCarPackage) {
+        bRemoveCarPackage.addActionListener(listenForBRemoveCarPackage);
+    }
+    // Submit Order Button
+    void addBSubmitListener(ActionListener listenForBSubmit) {
+        bSubmit.addActionListener(listenForBSubmit);
+    }
+
+
+    // Car Type Radio Buttons
+    void addRButtonCarTypeCompactListener(ActionListener listenForRButtonCarTypeCompact) {
+        rButtonCarTypeCompact.addActionListener(listenForRButtonCarTypeCompact);
+    }
+    void addRButtonCarTypeMidSizedListener(ActionListener listenForRButtonCarTypeMidSized) {
+        rButtonCarTypeMidSized.addActionListener(listenForRButtonCarTypeMidSized);
+    }
+    void addRButtonCarTypeSUVListener(ActionListener listenForRButtonCarTypeSUV) {
+        rButtonCarTypeSUV.addActionListener(listenForRButtonCarTypeSUV);
+    }
     
-    // Error Messages
-    void displayErrorMessage(String errorMessage) {
-        JOptionPane.showMessageDialog(this, errorMessage);
+    // Delivery Combo Box
+    void addCBoxDeliveryListener(ActionListener listenForCBoxDelivery) {
+        cBoxDelivery.addActionListener(listenForCBoxDelivery);
+    }
+    
+    // Display Message
+    void displayMessage(String message) {
+        JOptionPane.showMessageDialog(this, message);
     }
 }

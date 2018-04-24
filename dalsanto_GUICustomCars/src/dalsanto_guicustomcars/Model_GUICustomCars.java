@@ -31,31 +31,50 @@ public class Model_GUICustomCars {
     public void setCarType(int i) { car.setType(i); }
 
     public int getCarPackage(int i) { return car.getPackage(i); }
-    public double getCarPackagesPrice(int i) { 
-        return (car.getPackages().size() - 1) * packagePrice; }
+    public double getCarPackagesPrice() { 
+        if (car.getPackages().size() > 0 && car.getType() > 0)
+            return (car.getPackages().size() - 1) * packagePrice;
+        else
+            return 0.0;
+    }
     public ArrayList<Integer> getCarPackages() { return car.getPackages(); }
     public String[] getCarPackageNames() { 
         String[] carPackages = new String[car.getPackages().size()];
         for(int i = 0; i < car.getPackages().size(); i++) {
-            carPackages[i] = Packages.get(car.getPackage(i)) + "\n";
+            carPackages[i] = Packages.get(car.getPackage(i));
         }
         return carPackages;
     }
-    public void addCarPackage(int i) { car.addPackage(i); }
+    public void addCarPackage(int i) {
+        if (!car.getPackages().contains(i))
+            car.addPackage(i); 
+    }
     public void removeCarPackage(int i) { car.removePackage(i); }
     public void removeCarPackageType(int i) { car.removePackageType(i); }
+    public void removeCarPackageTypeNames(ArrayList<String> s) { 
+        for (int i = 0; i < s.size(); i++) {
+            car.removePackageType(Packages.indexOf(s.get(i)));
+        }
+    }
     public void clearCarPackages() { car.clearPackages(); }
 
     public Boolean getCarDelivery() { return car.getDelivery(); }
+    public double getCarDeliveryPrice() {
+        if (getCarDelivery() && car.getType() > 0)
+            return deliveryPrice;
+        else
+            return 0.0;
+    }
     public void setCarDelivery(Boolean b) { car.setDelivery(b); }
     
-    public double getCarPrice() 
-    { 
-        int carPrice = 0;
-        carPrice += carTypes.getPrice(car.getType());
-        carPrice += ((car.getPackages().size() - 1) * packagePrice);
-        if (car.getDelivery())
-                carPrice += deliveryPrice;
+    public double getCarPrice() {
+        double carPrice = 0.0;
+        if (car.getType() > 0) {
+            carPrice += carTypes.getPrice(car.getType());
+            carPrice += getCarPackagesPrice();
+            if (car.getDelivery())
+                    carPrice += deliveryPrice;
+        }
         return carPrice;
     }
     

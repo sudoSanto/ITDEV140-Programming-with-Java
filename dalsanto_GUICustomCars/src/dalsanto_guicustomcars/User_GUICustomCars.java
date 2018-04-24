@@ -1,6 +1,4 @@
 package dalsanto_guicustomcars;
-import java.util.ArrayList;
-import java.util.Arrays;
 
 //Matthew Dal Santo
 //ITDEV140
